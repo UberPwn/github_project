@@ -18,15 +18,20 @@ const Search = () => {
   };
   const onChange = e => setText(e.target.value);
 
+  const onKeyPress = e => {
+    if (e.keyCode === 13) document.querySelector('.form').submit();
+  };
+
   return (
     <div>
-      <form onSubmit={onSubmit} className='from'>
+      <form onSubmit={onSubmit} className='form'>
         <input
           type='text'
           name='text'
           placeholder='Search users...'
           value={text}
           onChange={onChange}
+          onKeyPress={onKeyPress}
         />
         <input
           type='submit'
